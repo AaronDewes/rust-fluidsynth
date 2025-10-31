@@ -20,6 +20,8 @@ pub struct Settings {
     c_fluid_settings: *mut fluid_settings_t,
 }
 
+const FLUID_OK_INT: i32 = FLUID_OK as i32;
+
 impl Settings {
     pub fn new() -> Settings {
         unsafe {
@@ -37,8 +39,7 @@ impl Settings {
     pub fn get_hints(&self, name: &str) -> Option<i32> {
         let name_str = CString::new(name).unwrap();
         let mut res_ptr = 0;
-        let res =
-            unsafe { fluid_settings_get_hints(self.to_raw(), name_str.as_ptr(), &mut res_ptr) };
+        let res = unsafe { fluid_settings_get_hints(self.to_raw(), name_str.as_ptr(), &mut res_ptr) };
         if res != (FLUID_OK as c_int) {
             None
         } else {
@@ -100,7 +101,7 @@ impl Settings {
                 &mut res_ptr,
             );
 
-            if res != (FLUID_OK as c_int) {
+            if res != FLUID_OK_INT {
                 None
             } else {
                 Some(
@@ -123,7 +124,7 @@ impl Settings {
     pub fn setnum(&self, name: &str, value: f64) -> bool {
         let name_str = CString::new(name).unwrap();
         unsafe {
-            fluid_settings_setnum(self.c_fluid_settings, name_str.as_ptr(), value as c_double) != 0
+            fluid_settings_setnum(self.c_fluid_settings, name_str.as_ptr(), value as c_double) == FLUID_OK_INT
         }
     }
 
@@ -134,7 +135,7 @@ impl Settings {
             let res = fluid_settings_getnum(self.to_raw(), name_str.as_ptr(), &mut value);
 
             match res {
-                1 => Some(value),
+                FLUID_OK_INT => Some(value),
                 _ => None,
             }
         }
@@ -184,7 +185,7 @@ impl Settings {
             let res = fluid_settings_getint(self.to_raw(), name_str.as_ptr(), &mut value);
 
             match res {
-                1 => Some(value),
+                FLUID_OK_INT => Some(value),
                 _ => None,
             }
         }
@@ -194,10 +195,9 @@ impl Settings {
         let name_str = CString::new(name).unwrap();
         unsafe {
             let mut res_ptr = 0;
-            let res: i32 =
-                fluid_settings_getint_default(self.to_raw(), name_str.as_ptr(), &mut res_ptr);
+            let res: i32 = fluid_settings_getint_default(self.to_raw(), name_str.as_ptr(), &mut res_ptr);
 
-            if res != (FLUID_OK as c_int) {
+            if res != FLUID_OK_INT {
                 None
             } else {
                 Some(res_ptr)
@@ -286,11 +286,7 @@ impl Settings {
         unsafe {
             let user_data = &callback as *const _ as *mut c_void;
 
-            fluid_settings_foreach(
-                self.to_raw(),
-                user_data,
-                Some(foreach_callback_wrapper::<T>),
-            );
+            fluid_settings_foreach(self.to_raw(), user_data, Some(foreach_callback_wrapper::<T>));
         }
 
         extern "C" fn foreach_callback_wrapper<T>(

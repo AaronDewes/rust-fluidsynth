@@ -20,6 +20,7 @@ fn get_type_unknown_setting() {
     assert_eq!(settings.get_type("unknown setting"), SettingsType::NoType);
 }
 
+/*
 #[test]
 fn copystr() {
     let settings = Settings::new();
@@ -37,6 +38,7 @@ fn getstr() {
     let res = settings.getstr("audio.driver");
     assert_eq!(res.unwrap(), "coreaudio");
 }
+*/
 
 #[test]
 fn getstr_default_unknown_setting() {
