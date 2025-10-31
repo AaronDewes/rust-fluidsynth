@@ -1,10 +1,10 @@
 [package]
-name = "fluidsynth"
-version = "0.0.1"
+name = "fluidsynth-ng"
+version = "0.1.0"
 authors = ["Aaron Dewes <aaron@nirvati.org>", "Anna Scholtz <anna@scholtzan.net>"]
 license = "LGPL-2.0"
 description = "FluidSynth bindings"
-repository = "https://github.com/scholtzan/rust-fluidsynth"
+repository = "https://github.com/AaronDewes/rust-fluidsynth"
 edition = "2024"
 
 [dependencies]

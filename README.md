@@ -1,6 +1,6 @@
 # rust-fluidsynth
 
-[![Build status (master)](https://api.travis-ci.org/scholtzan/rust-fluidsynth.svg?branch=master)](https://travis-ci.org/scholtzan/rust-fluidsynth)
+> A fork of [rust-fluidsynth](https://github.com/scholtzan/rust-fluidsynth), adjusted for modern FluidSynth.
 
 > Note: This project is currently not under active development. Not all functionality to use fluidsynth is available yet. Nevertheless, feel free to fork and and send pull requests with additional functionality or bug fixes.
 
@@ -16,18 +16,14 @@ A documentation of the FluidSynth API is available [here](http://fluidsynth.sour
 To use `rust-fluidsynth` you must install FluidSynth on your computer and add this to `Cargo.toml`:
 
 ```toml
-[dependencies.fluidsynth]
-git = "https://github.com/scholtzan/rust-fluidsynth"
+[dependencies.fluidsynth-ng]
+git = "https://github.com/AaronDewes/rust-fluidsynth"
 ```
 
 ## Short example
 
 ```Rust
-extern crate fluidsynth;
-extern crate rand;
-extern crate time;
-
-use fluidsynth::*;
+use fluidsynth_ng::*;
 use rand::{thread_rng, Rng};
 use std::thread;
 
