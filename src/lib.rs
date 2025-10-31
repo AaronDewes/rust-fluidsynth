@@ -12,7 +12,7 @@ mod ffi {
 
 pub mod audio;
 pub mod event;
-pub mod gen;
+pub mod r#gen;
 pub mod log;
 pub mod midi;
 pub mod modulator;

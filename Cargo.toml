@@ -5,11 +5,11 @@ authors = ["Aaron Dewes <aaron@nirvati.org>", "Anna Scholtz <anna@scholtzan.net>
 license = "LGPL-2.0"
 description = "FluidSynth bindings"
 repository = "https://github.com/scholtzan/rust-fluidsynth"
-edition = "2018"
+edition = "2024"
 
 [dependencies]
 libc = "0.2"
 
 [build-dependencies]
-bindgen = "0.66"
+bindgen = "0.72"
 pkg-config = "0.3"

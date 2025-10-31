@@ -1,6 +1,6 @@
 extern crate libc;
 use crate::ffi::*;
-use crate::gen::*;
+use crate::r#gen::*;
 use libc::{c_double, c_int};
 use std::mem::*;
 
