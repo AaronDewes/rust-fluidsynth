@@ -1,7 +1,7 @@
 extern crate libc;
-use ffi::*;
-use settings::*;
-use synth::*;
+use crate::ffi::*;
+use crate::settings::*;
+use crate::synth::*;
 
 pub struct AudioDriver {
     c_fluid_audio_driver: *mut fluid_audio_driver_t,

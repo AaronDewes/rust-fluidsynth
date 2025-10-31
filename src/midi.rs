@@ -1,10 +1,10 @@
 extern crate libc;
-use ffi::*;
+use crate::ffi::*;
 use libc::{c_float, c_int, c_void};
-use settings::*;
+use crate::settings::*;
 use std::ffi::CString;
 use std::mem::*;
-use synth::Synth;
+use crate::synth::Synth;
 
 pub struct MidiRouter {
     c_fluid_midi_router: *mut fluid_midi_router_t,

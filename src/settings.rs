@@ -1,5 +1,5 @@
 extern crate libc;
-use ffi::*;
+use crate::ffi::*;
 use libc::{c_char, c_double, c_int, c_void};
 use std::ffi::{CStr, CString};
 use std::mem::*;

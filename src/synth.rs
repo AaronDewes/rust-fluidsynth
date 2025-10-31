@@ -1,8 +1,8 @@
 extern crate libc;
-use ffi::*;
+use crate::ffi::*;
 use libc::{c_double, c_float, c_int, c_uint};
-use settings::*;
-use sfont::*;
+use crate::settings::*;
+use crate::sfont::*;
 use std::ffi::{CStr, CString};
 use std::mem::*;
 use std::str;

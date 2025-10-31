@@ -1,10 +1,10 @@
 extern crate libc;
-use event::*;
-use ffi::*;
+use crate::event::*;
+use crate::ffi::*;
 use libc::{c_double, c_int, c_short, c_uint, c_void};
 use std::ffi::{CStr, CString};
 use std::str;
-use synth::*;
+use crate::synth::*;
 
 pub struct Sequencer {
     c_fluid_sequencer: *mut fluid_sequencer_t,

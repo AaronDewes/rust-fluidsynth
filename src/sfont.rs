@@ -1,5 +1,5 @@
 extern crate libc;
-use ffi::*;
+use crate::ffi::*;
 
 pub struct SoundFont {
     c_fluid_sfont: *mut fluid_sfont_t,
