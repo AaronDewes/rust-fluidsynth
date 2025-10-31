@@ -60,7 +60,7 @@ fn getstr_equal() {
 }
 
 #[test]
-#[should_fail]
+#[should_panic]
 fn getstr_equal_fail() {
     let settings = Settings::new();
     settings.setstr("audio.driver", "coreaudio");
@@ -95,13 +95,19 @@ fn getnum_default_none() {
 #[test]
 fn getnum_default() {
     let settings = Settings::new();
-    assert_eq!(settings.getnum_default("synth.overflow.volume"), Some(500.0));
+    assert_eq!(
+        settings.getnum_default("synth.overflow.volume"),
+        Some(500.0)
+    );
 }
 
 #[test]
 fn getnum_range() {
     let settings = Settings::new();
-    assert_eq!(settings.getnum_range("synth.overflow.volume"), Some((-10000.00, 10000.00)));
+    assert_eq!(
+        settings.getnum_range("synth.overflow.volume"),
+        Some((-10000.00, 10000.00))
+    );
 }
 
 #[test]
@@ -144,7 +150,10 @@ fn getint_default() {
 #[test]
 fn getint_range() {
     let settings = Settings::new();
-    assert_eq!(settings.getint_range("synth.effects-channels"), Some((2, 2)));
+    assert_eq!(
+        settings.getint_range("synth.effects-channels"),
+        Some((2, 2))
+    );
 }
 
 #[test]
@@ -179,7 +188,10 @@ fn option_count_not_a_str() {
 #[test]
 fn option_concat() {
     let settings = Settings::new();
-    assert_eq!(settings.option_concat("audio.driver", ","), Some("coreaudio,file"));
+    assert_eq!(
+        settings.option_concat("audio.driver", ","),
+        Some("coreaudio,file")
+    );
 }
 
 #[test]
@@ -187,7 +199,3 @@ fn option_concat_fail() {
     let settings = Settings::new();
     assert_eq!(settings.option_concat("no such type", ","), None);
 }
-
-
-
-

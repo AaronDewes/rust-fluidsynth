@@ -1,7 +1,7 @@
 #![feature(test)]
-extern crate fluidsynth;
 extern crate core;
-extern crate test;
+extern crate fluidsynth;
 extern crate libc;
+extern crate test;
 
 mod settings;

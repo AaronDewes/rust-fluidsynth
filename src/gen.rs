@@ -1,18 +1,8 @@
-use ffi::*;
-
-#[repr(C)]
-#[derive(PartialEq, Debug)]
-pub enum GenFlags {
-    Unused = 0,
-    Set, 
-    AbsNrpn,
-}
-
 #[repr(C)]
 #[derive(PartialEq, Debug)]
 pub enum GenType {
     StartAddrOffset = 0,
-    EndAddrOffset, 
+    EndAddrOffset,
     StartLoopAddOffset,
     EndLoopAddrOffset,
     StartAddrCoarseOffset,
@@ -63,7 +53,9 @@ pub enum GenType {
     ScaleTune = 56,
     ExclusiveClass,
     OverrideRootKey,
-    Pitch,
-    Last,
+    Pitch = 59,
+    CustomBalance = 60,
+    CustomFilterFC = 61,
+    CustomFilterQ = 62,
+    Last = 63,
 }
-

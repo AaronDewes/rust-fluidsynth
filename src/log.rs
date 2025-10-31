@@ -1,5 +1,3 @@
-use ffi::*;
-
 #[repr(C)]
 #[derive(PartialEq, Debug)]
 pub enum LogLevel {
